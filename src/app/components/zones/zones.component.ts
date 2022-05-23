@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import zones from './zones.json';
 @Component({
   selector: 'app-zones',
   templateUrl: './zones.component.html',
@@ -7,7 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ZonesComponent implements OnInit {
 
-  constructor() { }
+
+  zonesData:{areaId:number, name:string}[] = zones;
+  
+  
+  constructor() {
+    console.log();
+
+   }
 
   ngOnInit(): void {
   }
