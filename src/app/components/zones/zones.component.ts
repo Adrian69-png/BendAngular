@@ -22,16 +22,10 @@ export class ZonesComponent  implements OnInit {
 
     var list:any= [];
     var pos = 0;
-    for (var i in zones){
-     if(zones[i] == zone){
-       list[pos] = zones[i];
-       
-       pos++;
-
-     }
+   
      pos = 0;
      
-    }
+    
     for (var i in this.newThings){
       if(this.newThings[i].areaId == zone){
           display_things[pos] = this.newThings[i];
@@ -39,25 +33,7 @@ export class ZonesComponent  implements OnInit {
       }
     }
 
-    var null_zones:any = [];
-    for (var i in display_things){
-      if (display_things[i].joinedWith == null){
-        null_zones.push(display_things[i]);
-      
-      }
-    }
-    // console.log(null_zones);
-    var sorted_zones:any = [];
-    for (var i in null_zones){
-
-      sorted_zones.push(null_zones[i]);
-
-      for(var j in display_things){
-        if(display_things[j].joinedWith == null_zones[i].id){
-            sorted_zones.push(display_things[j]);
-        } 
-      }
-    }
+    
 
     
     return display_things; 
@@ -74,6 +50,7 @@ export class ZonesComponent  implements OnInit {
     }
     return null_zones
   }
+
   get_sorted_zones(list:any[], list2:any[]){
     var sorted_zones:any = [];
     for (var i in list){
