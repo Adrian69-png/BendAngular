@@ -1,6 +1,67 @@
+*{
+    margin: 0;
+    
+}
 ul{
     list-style: none;
 }
 p{
     padding-left: 1%;
 }
+li{
+    color: rgb(255, 255, 255);
+    font-size: 24pt;
+}
+app-new-things{
+    color: rgb(255, 255, 255);
+    display: block;
+
+    width: 7%;
+    background-color: #3564af;
+    border-radius: 10%;
+    
+}
+.cart{
+   display: inline-block;
+   border-radius: 5%;
+   padding: 2%;
+   margin: 3% 0%;
+  
+
+   background-color: #325ea5;
+ 
+
+}
+span{
+    /* display: flex;
+    align-self: center;
+    align-content: center;
+    justify-content: center; */
+}
+div{
+    border-width: 0;
+
+}
+
+
+.status_div{
+    width: 10px; 
+    height: 100px; 
+    display: inline-flex; 
+    justify-content: center; 
+    flex-direction: column;
+}
+.status_div_closed{
+    height: 70%;
+    background-color: red; 
+    border-top-right-radius: 75%; 
+    border-bottom-right-radius: 75%;
+}
+.status_div_opened{
+    height: 70%; 
+    background-color: rgb(255, 238, 0); 
+    border-top-right-radius: 75%; 
+    border-bottom-right-radius: 75%;
+}
+
+

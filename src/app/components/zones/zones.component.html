@@ -1,8 +1,71 @@
-<p>[</p>
-<ul *ngFor="let item of zonesData">
-    <li>
-         "areaId":{{item.areaId}},<br> 
-        "name":"{{item.name}}"
+<ul>
+    <li *ngFor="let item of zonesData; let i = index;">
+        {{item.name}}
+        <br>
+        <div style="display: flex; flex-wrap: wrap;">
+            <div *ngFor="let cart of get_sorted_zones(get_null_zones(display(item.areaId)), display(item.areaId)); let i = index"
+                style="display: flex; flex-direction: row;">
+
+
+                <div style="display: inline-block;"
+                    *ngFor="let chain of get_chain(cart, get_sorted_zones(get_null_zones(display(item.areaId)), display(item.areaId))); let i = index">
+                    <div style="display: flex;">
+
+                        <div style="height: 116px;width: 15px; display:flex; flex-direction: column; justify-content: center;"
+                            *ngIf="chain.joinedWith != null; else isNull;">
+                            <div style="height: 70%; background-color: #234681; ">
+
+                            </div>
+                        </div>
+                        <ng-template #isNull>
+                            <div
+                                style="height: 116px;width: 15px; display:flex; flex-direction: column; justify-content: center;">
+                                <div style="height: 70%; background-color: #193157;">
+
+                                </div>
+                            </div>
+                        </ng-template>
+
+
+                        <div class="cart" style=" width: 150px; ">
+                            <div>
+                                <span style="float: right; font-size: 12pt;">{{chain.defaultSku}}</span>
+                            </div>
+                            <!-- <div *ngIf="cart.status == 'closed';" style="width: 10%; background-color: red; height: 100%; display: inline-block;">
+
+                        </div> -->
+                            <div style="display: flex;  ">
+                                <div *ngIf="get_chain(cart, get_sorted_zones(get_null_zones(display(item.areaId)), display(item.areaId)))[0].status == 'closed' && i==0 ;"
+                                    class="status_div">
+                                    <div class=" status_div_closed"></div>
+
+                                </div>
+                                <div *ngIf="get_chain(cart, get_sorted_zones(get_null_zones(display(item.areaId)), display(item.areaId)))[0].status == 'open' && i==0 ; "
+                                    style="width: 10px; height: 100px; display: inline-flex; justify-content: center; flex-direction: column;">
+                                    <div class="status_div_opened"></div>
+
+                                </div>
+                                <div
+                                    style="width: 50px; height: 100px; display: inline-flex; justify-content: center; flex-direction: column;">
+                                </div>
+                                <div style="display: flex;  justify-content: center; position: relative; ">
+                                    <span style="align-self: center;">{{chain.sku}}</span>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+            </div>
+        </div>
     </li>
-</ul> 
-<p>]</p>
+
+</ul>

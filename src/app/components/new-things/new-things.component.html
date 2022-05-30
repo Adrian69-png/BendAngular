@@ -1,1 +1,12 @@
-<p>new-things works!</p>
+<!-- <div class="card" *ngFor="let thing of newThings">
+    <span [innerHTML]="display(1791)">   </span>
+</div> -->
+ 
+<ul >
+    <li *ngFor="let item of zonesData">
+        {{item.name}}
+        <app-new-things ></app-new-things>
+
+    </li>
+    
+</ul>  
