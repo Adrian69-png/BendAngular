@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core';
 import { NewThings } from '../../Models/NewThings';
+import { Observable } from 'rxjs';
+import { of } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export class NewThingsService {
 
-  getNewThings(list:NewThings[]):NewThings[]{
+  getNewThings(list:NewThings[]): Observable<NewThings[]>{
 
-    return list;
+    return of(list);
 
   }
 

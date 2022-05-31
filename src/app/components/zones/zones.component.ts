@@ -34,12 +34,14 @@ export class ZonesComponent implements OnInit {
     return this.newThingsService.getChain(value, list);
   }
 
+  //initialize list of zones by model
   getZones(){
-    return this.zonesData = this.zoneServices.getZones(zones);
+    this.zoneServices.getZones(zones).subscribe(zones => {this.zonesData = zones});
   }
 
+  //initialize list of new things by model
   getNewThings(){
-    return this.newThings = this.newThingsService.getNewThings(new_things);
+   this.newThingsService.getNewThings(new_things).subscribe(newThings => {this.newThings = newThings});
   }
 
   //return carts by given zone value
@@ -49,11 +51,13 @@ export class ZonesComponent implements OnInit {
 
 
   ngOnInit(): void {
-    
-  }
-  constructor( private zoneServices: ZoneService, private newThingsService:NewThingsService) {
     this.getZones();
     this.getNewThings();
+  }
+  
+  constructor( private zoneServices: ZoneService, private newThingsService:NewThingsService) {
+    
+    
   }
 
   
