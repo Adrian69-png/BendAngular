@@ -1,14 +1,14 @@
 <ul>
-    <li *ngFor="let item of zonesData; let i = index;">
+    <li *ngFor="let item of getZones(); let i = index;">
         {{item.name}}
         <br>
         <div style="display: flex; flex-wrap: wrap;">
-            <div *ngFor="let cart of get_sorted_zones(get_null_zones(display(item.areaId)), display(item.areaId)); let i = index"
+            <div *ngFor="let cart of getSortedCarts(getNullCart(getCartByZone(item.areaId)), getCartByZone(item.areaId)); let i = index"
                 style="display: flex; flex-direction: row;">
 
 
                 <div style="display: inline-block;"
-                    *ngFor="let chain of get_chain(cart, get_sorted_zones(get_null_zones(display(item.areaId)), display(item.areaId))); let i = index">
+                    *ngFor="let chain of getChain(cart, getSortedCarts(getNullCart(getCartByZone(item.areaId)), getCartByZone(item.areaId))); let i = index">
                     <div style="display: flex;">
 
                         <div style="height: 116px;width: 15px; display:flex; flex-direction: column; justify-content: center;"
@@ -35,18 +35,18 @@
 
                         </div> -->
                             <div style="display: flex;  ">
-                                <div *ngIf="get_chain(cart, get_sorted_zones(get_null_zones(display(item.areaId)), display(item.areaId)))[0].status == 'closed' && i==0 ;"
+                                <div *ngIf="getChain(cart, getSortedCarts(getNullCart(getCartByZone(item.areaId)), getCartByZone(item.areaId)))[0].status == 'closed' && i==0 ;"
                                     class="status_div">
                                     <div class=" status_div_closed"></div>
 
                                 </div>
-                                <div *ngIf="get_chain(cart, get_sorted_zones(get_null_zones(display(item.areaId)), display(item.areaId)))[0].status == 'open' && i==0 ; "
+                                <div *ngIf="getChain(cart, getSortedCarts(getNullCart(getCartByZone(item.areaId)), getCartByZone(item.areaId)))[0].status == 'open' && i==0 ; "
                                     style="width: 10px; height: 100px; display: inline-flex; justify-content: center; flex-direction: column;">
                                     <div class="status_div_opened"></div>
 
                                 </div>
                                 <div
-                                    style="width: 50px; height: 100px; display: inline-flex; justify-content: center; flex-direction: column;">
+                                    style="width: 55px; height: 100px; display: inline-flex; justify-content: center; flex-direction: column;">
                                 </div>
                                 <div style="display: flex;  justify-content: center; position: relative; ">
                                     <span style="align-self: center;">{{chain.sku}}</span>
@@ -56,13 +56,6 @@
                         </div>
                     </div>
                 </div>
-
-
-
-
-
-
-
 
             </div>
         </div>

@@ -24,7 +24,6 @@ app-new-things{
 .cart{
    display: inline-block;
    border-radius: 5%;
-   padding: 2%;
    margin: 3% 0%;
   
 
@@ -37,6 +36,7 @@ span{
     align-self: center;
     align-content: center;
     justify-content: center; */
+    padding: 2%;
 }
 div{
     border-width: 0;
@@ -54,8 +54,8 @@ div{
 .status_div_closed{
     height: 70%;
     background-color: red; 
-    border-top-right-radius: 75%; 
-    border-bottom-right-radius: 75%;
+    border-top-right-radius: 100%; 
+    border-bottom-right-radius: 100%;
 }
 .status_div_opened{
     height: 70%; 
